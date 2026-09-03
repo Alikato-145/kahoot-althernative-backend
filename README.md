@@ -1,4 +1,17 @@
-# Camp Quiz
+# Camp Quiz Backend
+
+This repository contains the API, Socket.IO realtime game server, Redis live state, MySQL migrations, and media storage. Deploy it as a long-running Node service on Dokploy.
+
+Required environment variables:
+
+```env
+DATABASE_URL=mysql://...
+REDIS_URL=redis://...
+MEDIA_ROOT=/data/media
+PUBLIC_BASE_URL=https://api.quiz.nxsmnt.me
+FRONTEND_URL=https://quiz.nxsmnt.me
+PORT=3000
+```
 
 Camp Quiz is a Thai, Kahoot-inspired game for a projected Host screen and players joining from their phones. A Host creates a quiz with exactly four answers per question, optional question/reveal images, and an explanation. Live rooms use Socket.IO and Redis; MySQL keeps quiz content and final results.
 
