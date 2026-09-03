@@ -1,6 +1,6 @@
 # Camp Quiz Backend
 
-This repository contains the API, Socket.IO realtime game server, Redis live state, MySQL migrations, and media storage. Deploy it as a long-running Node service on Dokploy.
+This repository contains only the API, Socket.IO realtime game server, Redis live state, MySQL migrations, and media storage. There are no player/Host pages here; deploy it as a long-running Node service on Dokploy.
 
 Required environment variables:
 
