@@ -5,6 +5,7 @@ const configSchema = z.object({
   REDIS_URL: z.string().min(1),
   MEDIA_ROOT: z.string().min(1).default('./media'),
   PUBLIC_BASE_URL: z.string().url().default('http://localhost:3000'),
+  FRONTEND_URL: z.string().url().default('http://localhost:3000'),
   PORT: z.coerce.number().int().positive().default(3000),
 })
 
@@ -13,6 +14,7 @@ export type ServerConfig = {
   redisUrl: string
   mediaRoot: string
   publicBaseUrl: string
+  frontendUrl: string
   port: number
 }
 
@@ -23,6 +25,7 @@ export function loadConfig(input: Record<string, unknown> = process.env): Server
     redisUrl: parsed.REDIS_URL,
     mediaRoot: parsed.MEDIA_ROOT,
     publicBaseUrl: parsed.PUBLIC_BASE_URL,
+    frontendUrl: parsed.FRONTEND_URL,
     port: parsed.PORT,
   }
 }

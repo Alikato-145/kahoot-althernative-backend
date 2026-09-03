@@ -12,7 +12,7 @@ const app = next({ dev })
 void app.prepare().then(() => {
   const handle = app.getRequestHandler()
   const server = createServer((request, response) => handle(request, response))
-  const io = new SocketIOServer(server, { path: '/socket.io' })
+  const io = new SocketIOServer(server, { path: '/socket.io', cors: { origin: config.frontendUrl, methods: ['GET', 'POST'] } })
   const gameService = registerGameSocketHandlers(io)
   void gameService.restoreTimers().catch((error) => console.error('Unable to restore game timers', error))
   server.listen(config.port, () => console.log(`> Ready on ${config.publicBaseUrl}`))
